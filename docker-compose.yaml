@@ -1,0 +1,15 @@
+services:
+  coco-mulla:
+    build: .
+    container_name: coco-mulla
+    tty: true
+    stdin_open: true
+    volumes:
+      - .:/app
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
