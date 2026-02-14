@@ -6,6 +6,11 @@ services:
     stdin_open: true
     volumes:
       - .:/app
+      - ~/.cache/huggingface:/root/.cache/huggingface
+      - ~/.cache/torch:/root/.cache/torch
+      - ../out:/app/out
+      - ../data:/app/data:ro
+    working_dir: /app
     deploy:
       resources:
         reservations:
